@@ -389,14 +389,15 @@ if (GLFW_INSTALL)
             DESTINATION "lib${LIB_SUFFIX}/pkgconfig")
 
     # Only generate this target if no higher-level project already has
-    if (NOT TARGET uninstall)
-        configure_file(cmake_uninstall.cmake.in
-                       cmake_uninstall.cmake IMMEDIATE @ONLY)
-
-        add_custom_target(uninstall
-                          "${CMAKE_COMMAND}" -P
-                          "${GLFW_BINARY_DIR}/cmake_uninstall.cmake")
-        set_target_properties(uninstall PROPERTIES FOLDER "GLFW3")
-    endif()
+# Inviwo: do not create uninstall target
+#    if (NOT TARGET uninstall)
+#        configure_file(cmake_uninstall.cmake.in
+#                       cmake_uninstall.cmake IMMEDIATE @ONLY)
+#
+#        add_custom_target(uninstall
+#                          "${CMAKE_COMMAND}" -P
+#                          "${GLFW_BINARY_DIR}/cmake_uninstall.cmake")
+#        set_target_properties(uninstall PROPERTIES FOLDER "GLFW3")
+#    endif()
 endif()
 
